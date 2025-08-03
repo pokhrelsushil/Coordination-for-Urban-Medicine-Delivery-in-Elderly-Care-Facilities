@@ -1,4 +1,4 @@
-This work involveS Reinforcment learning and AI : Multi-Robot Medication Delivery System Implementation
+This work involveS Reinforcment learning and AI(cSUSHILPOKHREL) : Multi-Robot Medication Delivery System Implementation
 This repository provides a full source code implementation of a multi-robot medication delivery system in an assisted living facility, using both COMA (Counterfactual Multi-Agent) and FACMAC (Factored Multi-Agent Centralized Policy Gradients) multi-agent reinforcement learning algorithms. The system is fully integrated with the Webots simulation platform and ROS 2 middleware for decentralized navigation and task allocation. Key features include PyTorch-based MARL algorithms (COMA & FACMAC), a ROS 2 auction-based task allocation mechanism, Webots simulation with realistic sensors/actuators and dynamic human obstacles, and MATLAB scripts for ROS 2 integration.
 Repository Structure
 The project is organized in a clear GitHub-style layout:
