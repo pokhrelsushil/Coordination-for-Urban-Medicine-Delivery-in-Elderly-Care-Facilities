@@ -29,17 +29,18 @@ GitHub: \url{https://github.com/pokhrelsushil}}
 
 NB : \textbf{AFTER THE COURSE PROJECT SUBMISSION , WILL BE SUBMITTED TO \textit{\href{https://arxiv.org/login?next_page=/user/}{ARXIV}} FOR PUBLICATION}
 }
-
+I have prepared  long version of the print copy for paper publication 
 }
 
 \maketitle    
 
-\begin{abstract}
+
+\begin{abstract}\textbf{}
 Efficient and reliable medication delivery systems within elderly care facilities are crucial, where patient needs are time-sensitive and influenced by limited staff availability. Multi-robot systems, employing adaptive Multi-Agent Reinforcement Learning (MARL), effectively address these challenges by coordinating Autonomous Mobile Robots (AMRs) for timely deliveries. Such systems, leveraging robust simulations (e.g., Webots), enable navigation of complex environments with static and dynamic obstacles, enhancing operational efficiency in care homes. The implementation of advanced MARL algorithms such as Counterfactual Multi-Agent (COMA) and Factored Centralized Actor-Critic (FACMAC), integrated within the Robot Operating System 2 (ROS 2) framework and the PyTorch library, improves the coordination of multiple robots in real-time scenarios where human interactions vary, allowing for adaptive task allocations. These algorithms enhance robots' ability to predict and respond to the actions of individuals within the care facility. Results from extensive training reveal that MARL-coordinated robots significantly outperform classical multi-agent pathfinding systems, achieving 92--95\% completion rates with fewer collisions and improved routing efficiency. Additionally, insights underscore the importance of utilizing digital twin simulations for safe training environments, highlighting the potential for deploying multiple physical robots. The findings support the growing narrative in the literature advocating for the integration of intelligent robotic systems in eldercare to mitigate caregiver shortages and enhance care quality. In conclusion, leveraging advanced algorithms in robotics lays the groundwork for more effective and efficient medication delivery systems within elderly care settings. Future work should focus on transferring learned policies from simulation to real-world applications while ensuring ethical considerations, particularly regarding the relationship dynamics between robots and elderly patients.
 \end{abstract}
 
  \begin{IEEEkeywords}
-Multi-Agent Reinforcement Learning, Autonomous Mobile Robots, Medication Delivery, Elderly Care, Webots Simulation, ROS 2, Task Allocation, Human-Robot Interaction
+\textit{Multi-Agent Reinforcement Learning, Autonomous Mobile Robots, Medication Delivery, Elderly Care, Webots Simulation, ROS 2, Task Allocation, Human-Robot Interaction}
 \end{IEEEkeywords}
 
 
@@ -49,6 +50,17 @@ Multi-Agent Reinforcement Learning, Autonomous Mobile Robots, Medication Deliver
 \section{Introduction}
 The increasing interest in service robots for assisting with daily caregiving duties in assisted living and nursing homes is primarily driven by the challenges posed by an aging population. One significant task that stands to benefit from robotic assistance is medication delivery, a labor-intensive duty typically managed by nursing staff \citep{bao2021}. Autonomous medication delivery robots can enable caregivers to focus more on direct patient interactions, thereby improving the quality of care provided \citep{jeon2016}.
 
+    \label{fig:placeholder}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{In-Home Care for Older Adults.png}
+    \caption{Different types of In-Home Care  Older Adults Robots}
+    \label{
+\section{\textbf{In-Home Care for Older Adults Robots}}
+
+ }
+\end{figure}
 Nonetheless, deploying multiple robots in a dynamic environment such as an assisted living facility poses considerable logistical challenges, primarily due to unpredictable resident and staff movement throughout common areas. Robots must effectively navigate to avoid collisions while delivering medication on schedule \citep{song2020}. Centralized coordination methods, often seen in traditional Multi-Agent Path Finding (MAPF) algorithms, may initially assume collision-free routes by precomputing paths for each robot \citep{wang2023}. However, these approaches are less effective in dynamic environments typical of eldercare facilities, where robots encounter shifting task priorities and unexpected obstacles \citep{sharon2015}.
 
 The challenges of real-time coordination and navigation in the presence of dynamic obstacles call for advanced approaches such as Multi-Agent Reinforcement Learning (MARL). This method allows robots (agents) to learn collaborative navigation strategies through interactive learning experiences, adapting their behavior based on feedback from their environment \citep{liu2023}. MARL has shown promise in other domains such as traffic management and warehouse automation \citep{yu2023}, yet its applicability within the context of eldercare remains largely unexamined, warranting further investigation.
@@ -60,7 +72,12 @@ The rest of this paper is organized as follows: Section \ref{sec:related} review
 \section{Related Work}
 \label{sec:related}
 In recent years, the integration of multi-robot systems within healthcare settings has gained prominence, driven by the demand for innovative solutions to alleviate the burden on healthcare professionals. Service robots, spanning from logistic delivery carts to social companions, contribute significantly to this domain by enhancing operational efficiency and supporting elderly care \citep{bonaccosi2016}. For instance, pilot projects leveraging ROS (Robot Operating System) have demonstrated the effectiveness of drug delivery and home assistance robots within nursing homes, reducing the workload of staff while ensuring timely care \citep{salinas2023}.
-
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{architecture_overview.png}
+    \caption{Flow between webots , ROS 2 and MARL agents }
+    \label{fig:placeholder}
+\end{figure}
 Nevertheless, the dynamics in healthcare environments present complex challenges, particularly when multiple robots operate concurrently. Conventional rule-based approaches or fixed scheduling systems often fall short in adapting to the fluid nature of these settings. Advances in multi-robot coordination strategies, such as the Contract Net Protocol and auction-based frameworks, have been employed to allocate tasks dynamically. These systems, while effective for initial task assignment, typically do not account for real-time changes in conditions or unforeseen obstacles \citep{kayy2017, salinas2023}. Research highlights that multi-agent pathfinding (MAPF) methods can optimize conflict-free navigation for multiple robots; however, traditional algorithms assume a static setting, which is seldom the case in dynamic care facilities populated by moving individuals \citep{sharon2015}.
 
 To address these limitations, adaptive mechanisms, such as Multi-Agent Reinforcement Learning (MARL), have emerged as a preferred framework for managing robot behaviors in unpredictable environments. MARL enables agents to learn and recalibrate their strategies through interaction, thus facilitating improved navigation and collaboration among robots \citep{liu2023}. Various algorithms within this paradigm, such as COMA (Counterfactual Multi-Agent) and FACMAC (Factored Multi-Agent Centralized Policy Gradients), enhance decision-making processes by introducing a centralized critic that aids in effective credit assignment among agents \citep{wang2023a}. The application of these algorithms in the context of healthcare logistics presents a promising avenue, allowing for more responsive and efficient service delivery.
@@ -130,7 +147,12 @@ To simulate a realistic operational environment, dynamic obstacles are introduce
 
 \subsection{Sensor and Simulation Constraints}
 In modeling simulation constraints, various specifications have been drawn from real-world data to ensure that the policies learned in simulation can be effectively translated to physical robots \citep{yang2022}. Incorporating communication delays and reliable assessment in our methodology allows MARL systems to learn within conditions of partial observability and latency \citep{liu2023}. By deploying ROS 2 alongside Webots, we ensure seamless integration of software components required for the simulation, paving the way for practical implementation \citep{ztouni2021}.
-
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{image.png}
+    \caption{Robot Navigation in Sim Environment}
+    \label{fig:placeholder}
+\end{figure}
 \section{Implementation}
 \label{sec:implementation}
 This section outlines the systematic process through which our Multi-Agent Reinforcement Learning (MARL) methodology was implemented over a nine-week development period. Each week was characterized by specific deliverables, from initial literature reviews to final testing, culminating in a comprehensive evaluation of our approach to robot coordination within an eldercare environment.
@@ -209,18 +231,41 @@ Throughput (tasks/h) & 71.5 & 65.1 \\
 While our simulation demonstrated proficiency with three to four robots, deploying ten robots in a larger facility necessitates considering more advanced MARL algorithms or decentralized approaches for coordination. The absence of explicit communication among our MARL agents emerged as a critical limitation. Literature suggests that establishing communication protocols can enhance the efficacy of multi-robot systems, particularly in contexts requiring robust coordination \citep{ztouni2021, ivanovic2019}. Although our focus was on testing implicit coordination strategies, findings indicate that explicit communication among robots may be essential to reduce conflicts and optimize path planning as team sizes grow \citep{liu2023}.
 
 Moreover, conducting our experiments in simulated environments raises concerns about real-world applicability, particularly with unpredictable human behaviors \citep{liu2023, yang2022}. Previous works have highlighted the necessity of integrating human-aware navigation strategies into robotic systems to enhance social compliance and safety \citep{rostumi2019, yang2022}. Human behaviors such as sudden movements can significantly impact robotic operations; thus, incorporating social norms into our reward structure could help mitigate potential disruption during real-world deployments \citep{yang2022, rostumi2019}. Our findings suggest that further research into adaptive policies that incorporate these social dynamics is essential for advancing practical implementations of MARL systems in human-populated environments.
-
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{collision_stats (1).png}
+    \caption{Collision per episode}
+    \label{fig:placeholder}
+\end{figure}
 In conclusion, while MARL presents substantial opportunities to enhance the coordination of autonomous robots in complex environments, the integration of traditional methods (such as task allocation) and realistic modeling (including sensor limitations and human behavior) remains crucial. The lessons learned from our work have potential applications in various robotic domains, such as hospital supply delivery and office automation. We believe our framework can significantly contribute to developing more efficient and safe robotic systems in healthcare and beyond \citep{ivanovic2019, schreiders2021}. Moving this research toward real-world testing in senior living facilities, supported by a digital twin approach, will be our primary focus in future work \citep{yoo2023, yoo2023a}.
-
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{energy_usage.png}
+    \caption{Energy Consumption per Episode }
+    \label{fig:placeholder}
+\end{figure}
 Contributions: For a safety-critical application, this work offers an integrated framework that connects robotic systems and reinforcement learning. We demonstrated that MARL can manage complex coordination (such as negotiating hallway rights-of-way) in a decentralized way by utilizing centralized critics and forming rewards \citep{wang2023a}. An innovative feature that increased the realism of our tests was the addition of a LangChain-based pedestrian simulation; this could be a helpful resource for others looking to incorporate human behavior into training simulations \citep{yang2022, rostumi2019}. Furthermore, my method combines the advantages of machine learning and operations research by employing MARL for path execution and auctions for task assignment, demonstrating the efficacy of a hierarchical approach \citep{kayy2017, gerkey2023}. The outcome is a reliable multi-robot system design that is prepared for practical testing in senior living facilities.
 
+
+a)The trajectory plot showing robot and pedestrian movements in the simulated care facility: 
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{image.png}
+    \caption{The trajectory plot showing robot and pedestrian movements in the simulated care facility }
+    \label{fig:placeholder}
+\end{figure}
 \section{Conclusion}
 \label{sec:conclusion}
 In this paper, we used adaptive MARL techniques to present a thorough simulation-based study of coordinating multiple autonomous robots for medicine delivery in an elderly care facility. We developed a rich testbed for multi-robot coordination by combining two state-of-the-art multi-agent reinforcement learning algorithms (COMA and FACMAC) with traditional task allocation and a novel LLM-driven environment. Our findings showed that by attaining greater task success rates, almost zero collisions, and enhanced energy efficiency, learning-based strategies can perform better than traditional planning in dynamic, unpredictable environments. The learned policies were kept grounded and practical for use in the real world by incorporating hardware limitations and sensor noise during training.
 
 \subsection{Future Work}
 We intend to move this work from simulation to real-world robots. In a lab environment that simulates a hospital hallway, we will first apply the learned policies to two actual mobile robots (fitted with LiDAR and ROS 2) \citep{ztouni2021}. We will employ a digital twin strategy, in which sensor data is used to keep the simulation environment in sync with the real world \citep{yoo2023, yoo2023a}. This will enable us to track the behavior of the policy and take appropriate action (for safety) while progressively boosting confidence. Through methods like domain randomization or continuous learning (perhaps by using reinforcement learning directly on the robot in brief trials), we expect to need to adjust the policies with real-world data \citep{yang2022}. Adaptive scheduling or planning is another extension. For example, scheduling decisions can be informed by the learned value function from our critic (the critic’s estimate of future reward could indicate whether a robot is likely to be delayed, etc.), which could feed into a higher-level scheduler. Furthermore, we are interested in investigating communication between robots. At the moment, all coordination is implicit, but efficiency may be further increased, particularly in larger teams, by providing robots with a learned communication protocol (using techniques like CommNet or MODDPO) \citep{ivanovic2019, yang2022}.
-
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{success_rate.png}
+    \caption{Task Success Rate}
+    \label{fig:placeholder}
+\end{figure}
 In terms of algorithms, we want to look into different MARL algorithms (like QMIX and MADDPG variations) and even employ curriculum learning to see if training can be made faster or better \citep{wang2023a, yang2022}. To help scale to larger problems, one approach is to train on simpler scenarios (e.g., with fewer obstacles) and then gradually increase the difficulty (e.g., more people, more robots). Using a multi-objective RL approach or explicitly including social norms or comfort distances in the reward could be beneficial for the human-robot interaction component \citep{yang2022, rostumi2019}. We could use social navigation research to penalize actions that, although efficient, humans may interpret as aggressive (e.g., squeezing through a gap directly in front of a walking person might scare them, even if no collision occurs). Real deployment in senior care, where resident and staff acceptance is critical, will require striking a balance between efficiency and such social compliance \citep{ivanovic2019, rostumi2019}.
 
 Lastly, we intend to make our learned models and simulation framework publicly available (the Appendix contains links to the GitHub repository). This will enable other researchers to build upon our system and replicate our findings. We intend to provide a practical digital twin environment for researching multi-robot coordination in human-populated areas by sharing the Webots world, ROS 2 nodes, and training code \citep{ztouni2021, salinas2023}. In a larger sense, our work is a step toward more intelligent healthcare facilities that integrate humans and robots. Such systems could significantly enhance healthcare delivery, increase safety (by lowering human error in medication distribution), and lessen the workload for care staff as MARL and robotics technology advance.
@@ -306,28 +351,28 @@ J. Yoo, J. Wang, and Z. Li, ``Digital twin approaches for multi-robot coordinati
 OpenAI. (2023). OpenAI models. https://www.openai.com
 
 
-\begin{appendix} 
+
 \appendices
-\section{1.COMA Training Loop} 
+\section{1.\textbf{COMA Training Loop}} 
 
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{Screenshot 2025-08-03 104105.png}
-    \caption{COMA TRAINING LOOP }
+    \caption{COMA TRAINING LOOP
+    2.}
     \label{fig:placeholder}
 \end{figure}
 
-\end{document}
- \triangle
-\end{document}  
+
+ 
 
 
-GitHub repository: \href{https://github.com/pokhrelsushil}
-{\texttt{https://github.com/pokhrelsushil}}
+GitHub /repository: {https://github.com/pokhrelsushil}
+{https://github.com/pokhrelsushil/Coordination-for-Urban-Medicine-Delivery-in-Elderly-Care-Facilities
 
 \bigskip
 \noindent\textbf{Note:} This paper is intended for submission to arXiv after its course project submission.
-\end{appendix}
+
 
 
 
@@ -437,7 +482,7 @@ def compute_coma_loss(agents, advantages):
     return torch.tensor(0.0)  # Simplified for illustration
 \end{lstlisting}
 
-\bibliographystyle{IEEEtran}
+\bibliographystyle{plainnat}
 \bibliography{references}
 % ===== Preamble Packages (Add in your document preamble) =====
 \usepackage{listings}
@@ -528,7 +573,7 @@ def compute_coma_loss(agents, advantages):
     return torch.tensor(0.0)  # Simplified for illustration
 \end{lstlisting}
 
-\bibliographystyle{IEEEtran}
+\bibliographystyle{plainnat}
 \bibliography{references}
 \href{}{}
 \documentclass[conference]{IEEEtran}
@@ -611,7 +656,7 @@ def compute_coma_loss(agents, advantages):
     return torch.tensor(0.0)  # Simplified for illustration
 \end{lstlisting}
 
-\bibliographystyle{IEEEtran}
+\bibliographystyle{plainnat}
 \bibliography{references}
 
 \end{document}
