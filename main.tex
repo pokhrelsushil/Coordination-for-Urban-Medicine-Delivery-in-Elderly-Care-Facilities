@@ -56,11 +56,11 @@ The increasing interest in service robots for assisting with daily caregiving du
     \centering
     \includegraphics[width=1\linewidth]{In-Home Care for Older Adults.png}
     \caption{Different types of In-Home Care  Older Adults Robots}
-    \label{
-\section{\textbf{In-Home Care for Older Adults Robots}}
+    \label{fig:inhome-care-robots}
 
- }
-\end{figure}
+
+ 
+\end{figure}   
 Nonetheless, deploying multiple robots in a dynamic environment such as an assisted living facility poses considerable logistical challenges, primarily due to unpredictable resident and staff movement throughout common areas. Robots must effectively navigate to avoid collisions while delivering medication on schedule \citep{song2020}. Centralized coordination methods, often seen in traditional Multi-Agent Path Finding (MAPF) algorithms, may initially assume collision-free routes by precomputing paths for each robot \citep{wang2023}. However, these approaches are less effective in dynamic environments typical of eldercare facilities, where robots encounter shifting task priorities and unexpected obstacles \citep{sharon2015}.
 
 The challenges of real-time coordination and navigation in the presence of dynamic obstacles call for advanced approaches such as Multi-Agent Reinforcement Learning (MARL). This method allows robots (agents) to learn collaborative navigation strategies through interactive learning experiences, adapting their behavior based on feedback from their environment \citep{liu2023}. MARL has shown promise in other domains such as traffic management and warehouse automation \citep{yu2023}, yet its applicability within the context of eldercare remains largely unexamined, warranting further investigation.
@@ -76,7 +76,7 @@ In recent years, the integration of multi-robot systems within healthcare settin
     \centering
     \includegraphics[width=1\linewidth]{architecture_overview.png}
     \caption{Flow between webots , ROS 2 and MARL agents }
-    \label{fig:placeholder}
+    \label{fig:placeholder2}
 \end{figure}
 Nevertheless, the dynamics in healthcare environments present complex challenges, particularly when multiple robots operate concurrently. Conventional rule-based approaches or fixed scheduling systems often fall short in adapting to the fluid nature of these settings. Advances in multi-robot coordination strategies, such as the Contract Net Protocol and auction-based frameworks, have been employed to allocate tasks dynamically. These systems, while effective for initial task assignment, typically do not account for real-time changes in conditions or unforeseen obstacles \citep{kayy2017, salinas2023}. Research highlights that multi-agent pathfinding (MAPF) methods can optimize conflict-free navigation for multiple robots; however, traditional algorithms assume a static setting, which is seldom the case in dynamic care facilities populated by moving individuals \citep{sharon2015}.
 
